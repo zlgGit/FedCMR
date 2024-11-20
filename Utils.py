@@ -122,10 +122,8 @@ def create_client_loaders_dirichlet(dataset, num_clients, alpha=0.5, batch_size=
 
     for idx, (_, label) in enumerate(dataset):
         data_indices[label].append(idx)
-    np.random.seed(44)
 
-    dirichlet_distribution = np.random.dirichlet([alpha] * num_clients,size=num_class)  # 10 是类别数
-    np.random.seed()
+    dirichlet_distribution = np.random.dirichlet([alpha] * num_clients,size=num_class) 
 
 
     client_data_indices = [[] for _ in range(num_clients)]
